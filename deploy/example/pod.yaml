@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foo-test
+spec:
+  containers:
+  - name: main 
+    image: alpine
+    imagePullPolicy: IfNotPresent
+    command:
+      - /bin/sh
+      - '-c'
+      - 'sleep infinity'
+    resources:
+      limits:
+        hardware-vendor.example/foo: 3 #pod will be pending, Insufficient hardware-vendor.example/foo
